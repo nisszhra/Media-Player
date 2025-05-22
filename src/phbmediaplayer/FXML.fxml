@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.media.*?>
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<BorderPane fx:id="bPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" styleClass="mainFxmlClass" stylesheets="@fxml.css" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="phbmediaplayer.FXMLController">
+   <top>
+      <VBox>
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="40.0" spacing="10.0" styleClass="now-playing-bar">
+               <children>
+                  <Label text="Now Playing: " styleClass="now-playing-label" />
+                  <Label fx:id="nowPlayingLabel" text="No media selected" styleClass="now-playing-text" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </top>
+   <bottom>
+      <VBox prefHeight="100.0" BorderPane.alignment="CENTER">
+         <children>
+            <Separator opacity="0.46" prefWidth="200.0" />
+            <Slider fx:id="seek" />
+            <HBox alignment="CENTER" prefHeight="100.0" spacing="10.0">
+               <children>
+                  <MenuButton mnemonicParsing="false" text="Open..">
+                    <items>
+                      <MenuItem mnemonicParsing="false" onAction="#openFiles" text="Open File(s)" />
+                      <MenuItem mnemonicParsing="false" onAction="#openFolder" text="Open Folder" />
+                        <MenuItem mnemonicParsing="false" onAction="#openPlaylist" text="Open Playlist" />
+                        <MenuItem mnemonicParsing="false" onAction="#savePlaylist" text="Save Playlist" />
+                    </items>
+                  </MenuButton>
+                  <Button mnemonicParsing="false" onAction="#backward" text="&lt;&lt;" />
+                  <Button mnemonicParsing="false" onAction="#seekBackward" text="&lt;" />
+                  <Button layoutX="237.0" layoutY="20.0" mnemonicParsing="false" onAction="#stop" text="Stop" />
+                  <Button fx:id="playPause" layoutX="302.0" layoutY="20.0" mnemonicParsing="false" onAction="#pausePlay" text="Play" />
+                  <Button layoutX="367.0" layoutY="20.0" mnemonicParsing="false" onAction="#seekForward" text="&gt;" />
+                  <Button layoutX="302.0" layoutY="20.0" mnemonicParsing="false" onAction="#forward" text="&gt;&gt;" />
+                  <Slider fx:id="volume" />
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </bottom>
+    <center>
+        <StackPane fx:id="sPane" minHeight="0.0" minWidth="0.0">
+            <MediaView fx:id="mediaView" fitWidth="0.0" fitHeight="0.0" preserveRatio="true" StackPane.alignment="CENTER"/>
+        </StackPane>
+    </center>
+</BorderPane>
